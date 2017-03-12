@@ -1,28 +1,26 @@
 import random
 
 #!/usr/bin/python
+try:
+    import MySQLdb
+    # Open database connection
+    db = MySQLdb.connect("localhost","webserver","password","cards" )
+    # prepare a cursor object using cursor() method
+    cursor = db.cursor()
+    # execute SQL query using execute() method.
+    cursor.execute("SELECT VERSION()")
+    # Fetch a single row using fetchone() method.
+    data = cursor.fetchone()
+    print "Database version : %s " % data
+    # disconnect from server
+    db.close()
+except:
+    pass 
 
-import MySQLdb
-
-# Open database connection
-db = MySQLdb.connect("localhost","webserver","password","cards" )
-
-# prepare a cursor object using cursor() method
-cursor = db.cursor()
-
-# execute SQL query using execute() method.
-cursor.execute("SELECT VERSION()")
-
-# Fetch a single row using fetchone() method.
-data = cursor.fetchone()
-
-print "Database version : %s " % data
-
-# disconnect from server
-db.close()
-
-cardSuits = ['hearts','clubs','spades','diamonds']
-cardValues = ['two','three','four','five','six','seven','eight','nine','ten','jack','queen','king','ace']
+# cardSuits = ['hearts','clubs','spades','diamonds']
+cardSuits = ['h','c','s','d']
+# cardValues = ['two','three','four','five','six','seven','eight','nine','ten','jack','queen','king','ace']
+cardValues = ['02','03','04','05','06','07','08','09','10','11','12','13','14']
 deckOfCards = []
 
 for suit in cardSuits:
