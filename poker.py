@@ -49,10 +49,10 @@ try:
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
     # execute SQL query using execute() method.
-    cursor.execute("DELETE FROM community_cards")
+    cursor.execute("DELETE FROM community_cards;")
     data = cursor.fetchone()
     print "%s " % data
-    cursor.execute("DELETE FROM player_cards")
+    cursor.execute("DELETE FROM player_cards;")
     data = cursor.fetchone()
     print "%s " % data
     # disconnect from server
