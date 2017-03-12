@@ -15,7 +15,7 @@ try:
     # disconnect from server
     db.close()
 except:
-    pass 
+    pass
 
 # cardSuits = ['hearts','clubs','spades','diamonds']
 cardSuits = ['h','c','s','d']
@@ -42,6 +42,25 @@ cardsInPlayerHands = 2
 #         deckOfCards.remove(individualCard)
 gameCards = {}
 
+try:
+    import MySQLdb
+    # Open database connection
+    db = MySQLdb.connect("localhost","webserver","password","cards" )
+    # prepare a cursor object using cursor() method
+    cursor = db.cursor()
+    # execute SQL query using execute() method.
+    cursor.execute("DELETE FROM community_cards")
+    data = cursor.fetchone()
+    print "%s " % data
+    cursor.execute("DELETE FROM player_cards")
+    data = cursor.fetchone()
+    print "%s " % data
+    # disconnect from server
+    db.close()
+except:
+    pass
+
+
 for player in range(1,players+1):
     for number in range(1,cardsInPlayerHands+1):
         # print player, number
@@ -51,6 +70,7 @@ for player in range(1,players+1):
 
 for each in gameCards:
     print each, gameCards[each]
+
 
 communityCards = []
 # Flop
@@ -76,27 +96,27 @@ individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
 deckOfCards.remove(individualCard)
 
-# for each in communityCards:
-    # print each
+for each in communityCards:
+    print each
 
 # Check for Winners
 
-for player in range(1,players+1):
-    hand = []
-    # print player
-    # print gameCards[player,1]
-    hand.append(gameCards[player,1])
-    # print gameCards[player,2]
-    hand.append(gameCards[player,2])
-    for each in communityCards:
-        hand.append(each)
-    # print hand
-    for each in hand:
-        print each
+# for player in range(1,players+1):
+#     hand = []
+#     # print player
+#     # print gameCards[player,1]
+#     hand.append(gameCards[player,1])
+#     # print gameCards[player,2]
+#     hand.append(gameCards[player,2])
+#     for each in communityCards:
+#         hand.append(each)
+#     # print hand
+#     for each in hand:
+#         print each
 # 1. Royal flush
 # A, K, Q, J, 10, all the same suit.
 # A K Q J T
-    royalFlush = False
+    # royalFlush = False
 
 
 
