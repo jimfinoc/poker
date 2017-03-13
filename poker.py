@@ -49,7 +49,7 @@ try:
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
     # execute SQL query using execute() method.
-    cursor.execute("DELETE FROM community_cards WHERE 1=1;")
+    cursor.execute("DELETE FROM community_cards")
     data = cursor.fetchone()
     print "%s " % data
     cursor.execute("DELETE FROM player_cards;")
@@ -69,8 +69,16 @@ for player in range(1,players+1):
         gameCards[player,number] = individualCard
         deckOfCards.remove(individualCard)
 
+
+
+
+
+
 for each in gameCards:
     print each, gameCards[each]
+
+    # 'INSERT INTO community_cards (Card) VALUES ("h02");'
+
 
 
 communityCards = []
@@ -87,6 +95,29 @@ individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
 deckOfCards.remove(individualCard)
 
+try:
+    import MySQLdb
+    # Open database connection
+    db = MySQLdb.connect("localhost","webserver","password","cards" )
+    # prepare a cursor object using cursor() method
+    cursor = db.cursor()
+
+
+    for each in communityCards:
+        print each[1] + each[0]
+        part1 = 'INSERT INTO community_cards (Card) VALUES ('
+        part2 = each[1] + each[0]
+        part3 = ');'
+        cursor.execute(part1+part2+part3)
+    # data = cursor.fetchone()
+    # print "%s " % data
+
+    db.commit()
+    db.close()
+except:
+    pass
+
+
 # Turn
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
@@ -97,8 +128,10 @@ individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
 deckOfCards.remove(individualCard)
 
-for each in communityCards:
-    print each
+
+
+# for each in communityCards:
+    # print each[1]+each[0]
 
 # Check for Winners
 
