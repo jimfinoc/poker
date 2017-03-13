@@ -17,6 +17,8 @@ try:
 except:
     pass
 
+players = 0
+
 try:
     print
     # Open database connection
@@ -104,9 +106,6 @@ while True:
             individualCard = random.choice(deckOfCards)
             gameCards[player,number] = individualCard
             deckOfCards.remove(individualCard)
-
-
-    players = 0
 
     try:
         print
