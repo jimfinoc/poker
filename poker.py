@@ -14,6 +14,8 @@ try:
     print "Database version : %s " % data
     # disconnect from server
     db.close()
+    wait = raw_input("PRESS ENTER TO CONTINUE.")
+
 except:
     pass
 
@@ -40,7 +42,6 @@ cardsInPlayerHands = 2
 #         individualCard = random.choice(deckOfCards)
 #         gameCards.append([player,number,individualCard])
 #         deckOfCards.remove(individualCard)
-gameCards = {}
 
 try:
     print
@@ -61,18 +62,13 @@ try:
 except:
     pass
 
-
+gameCards = {}
 for player in range(1,players+1):
     for number in range(1,cardsInPlayerHands+1):
         # print player, number
         individualCard = random.choice(deckOfCards)
         gameCards[player,number] = individualCard
         deckOfCards.remove(individualCard)
-
-
-
-
-
 
 for each in gameCards:
     print each, gameCards[each]
@@ -83,6 +79,8 @@ for each in gameCards:
 
 communityCards = []
 # Flop
+wait = raw_input("PRESS ENTER TO CONTINUE.")
+
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
 deckOfCards.remove(individualCard)
@@ -115,6 +113,8 @@ except:
 
 
 # Turn
+wait = raw_input("PRESS ENTER TO CONTINUE.")
+
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
 deckOfCards.remove(individualCard)
@@ -139,6 +139,8 @@ except:
 
 
 # River
+wait = raw_input("PRESS ENTER TO CONTINUE.")
+
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
 deckOfCards.remove(individualCard)
