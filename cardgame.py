@@ -1,7 +1,12 @@
 import random
 
+gameNumber = 0
+print "Welcome to the poker game."
 # while True:
+gameNumber = gameNumber + 1
+print "You are playing game #", gameNumber
 #!/usr/bin/python
+
 try:
     import MySQLdb
     # Open database connection
@@ -31,7 +36,6 @@ for suit in cardSuits:
 # for each in cards:
     # print each
 
-players = 3
 cardsInPlayerHands = 2
 # gameCards = []
 #
@@ -49,6 +53,9 @@ try:
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
     # execute SQL query using execute() method.
+    cursor.execute("DELETE FROM players")
+    data = cursor.fetchone()
+    print "%s " % data
     cursor.execute("DELETE FROM community_cards")
     data = cursor.fetchone()
     print "%s " % data
@@ -70,11 +77,16 @@ for player in range(1,players+1):
         deckOfCards.remove(individualCard)
 
 
+players = 0
 
 try:
     print
     db = MySQLdb.connect("localhost","webserver","password","cards" )
     cursor = db.cursor()
+    cursor.execute("SELECT * FROM players;")
+    players = curson.rowcount
+    print players
+    # players = 3
     for player in range(1,players+1):
         for number in range(1,cardsInPlayerHands+1):
             print gameCards[player,number][1] + gameCards[player,number][0]
@@ -101,7 +113,7 @@ except:
 
 communityCards = []
 # Flop
-wait = raw_input("Here comes the Flop. Hit enter")
+wait = raw_input("Here comes the Flop. Hit enter ")
 
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
@@ -135,7 +147,7 @@ except:
 
 
 # Turn
-wait = raw_input("Time for the Turn. Hit enter")
+wait = raw_input("Time for the Turn. Hit enter ")
 
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
@@ -161,7 +173,7 @@ except:
 
 
 # River
-wait = raw_input("And the River. Hit enter")
+wait = raw_input("And the River. Hit enter ")
 
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
