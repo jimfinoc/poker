@@ -56,6 +56,7 @@ try:
     data = cursor.fetchone()
     print "%s " % data
     # disconnect from server
+    db.commit()
     db.close()
 except:
     pass
