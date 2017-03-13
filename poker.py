@@ -1,5 +1,6 @@
 import random
 
+# while True:
 #!/usr/bin/python
 try:
     import MySQLdb
@@ -100,7 +101,7 @@ except:
 
 communityCards = []
 # Flop
-wait = raw_input("PRESS ENTER TO CONTINUE.")
+wait = raw_input("Here comes the Flop. Hit enter")
 
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
@@ -134,7 +135,7 @@ except:
 
 
 # Turn
-wait = raw_input("PRESS ENTER TO CONTINUE.")
+wait = raw_input("Time for the Turn. Hit enter")
 
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
@@ -160,7 +161,7 @@ except:
 
 
 # River
-wait = raw_input("PRESS ENTER TO CONTINUE.")
+wait = raw_input("And the River. Hit enter")
 
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
