@@ -40,9 +40,10 @@ except:
     pass
 print
 print "Welcome to the poker game."
+wait = raw_input("Welcome to the poker game. Enter the players now!")
 while True:
     gameNumber = gameNumber + 1
-    
+
     try:
         print
         db = MySQLdb.connect("localhost","webserver","password","cards" )
