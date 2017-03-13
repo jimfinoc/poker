@@ -21,7 +21,7 @@ except:
 
 players = 0
 
-wait = raw_input("Press Enter to delete old Players and begin.")
+wait = raw_input("Press Enter to reset all data.")
 
 try:
     print
@@ -31,6 +31,12 @@ try:
     cursor = db.cursor()
     # execute SQL query using execute() method.
     cursor.execute("DELETE FROM players")
+    data = cursor.fetchone()
+    print "%s " % data
+    cursor.execute("DELETE FROM community_cards")
+    data = cursor.fetchone()
+    print "%s " % data
+    cursor.execute("DELETE FROM player_cards;")
     data = cursor.fetchone()
     print "%s " % data
     # disconnect from server
