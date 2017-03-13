@@ -1,6 +1,8 @@
 import random
 
 gameNumber = 0
+wait = raw_input("Press Enter to begin.")
+
 try:
     import MySQLdb
     # Open database connection
