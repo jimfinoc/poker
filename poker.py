@@ -105,9 +105,10 @@ try:
 
     for each in communityCards:
         print each[1] + each[0]
-        part1 = 'INSERT INTO community_cards (Card) VALUES ('
+        part1 = 'INSERT INTO community_cards (Card) VALUES ("'
         part2 = each[1] + each[0]
-        part3 = ');'
+        part3 = '");'
+        print part1 + part2 + part3
         cursor.execute(part1+part2+part3)
     # data = cursor.fetchone()
     # print "%s " % data
@@ -130,8 +131,12 @@ deckOfCards.remove(individualCard)
 
 
 
-# for each in communityCards:
-    # print each[1]+each[0]
+for each in communityCards:
+    print each[1] + each[0]
+    part1 = 'INSERT INTO community_cards (Card) VALUES ("'
+    part2 = each[1] + each[0]
+    part3 = '");'
+    print part1 + part2 + part3
 
 # Check for Winners
 
