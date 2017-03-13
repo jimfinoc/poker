@@ -21,6 +21,8 @@ except:
 
 players = 0
 
+wait = raw_input("Press Enter to delete old Players and begin.")
+
 try:
     print
     # Open database connection
@@ -40,6 +42,19 @@ print
 print "Welcome to the poker game."
 while True:
     gameNumber = gameNumber + 1
+    
+    try:
+        print
+        db = MySQLdb.connect("localhost","webserver","password","cards" )
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM players;")
+        players = cursor.rowcount
+        print players
+        db.commit()
+        db.close()
+    except:
+        pass
+
     print
     print "You are playing game #", gameNumber
     #!/usr/bin/python
@@ -85,18 +100,6 @@ while True:
         data = cursor.fetchone()
         print "%s " % data
         # disconnect from server
-        db.commit()
-        db.close()
-    except:
-        pass
-
-    try:
-        print
-        db = MySQLdb.connect("localhost","webserver","password","cards" )
-        cursor = db.cursor()
-        cursor.execute("SELECT * FROM players;")
-        players = cursor.rowcount
-        print players
         db.commit()
         db.close()
     except:
