@@ -135,10 +135,11 @@ while True:
                 part2 = str(player) + ',"'
                 part3 = gameCards[player,number][1] + gameCards[player,number][0]
                 part4 = '");'
-                print part1 + part2 + part3 + part4
+                # print part1 + part2 + part3 + part4
                 cursor.execute(part1+part2+part3+part4)
         db.commit()
         db.close()
+        print "The players have their cards."
     except:
         pass
 
