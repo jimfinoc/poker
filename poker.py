@@ -88,14 +88,14 @@ try:
 except:
     pass
 
-for player in range(1,players+1):
-    for number in range(1,cardsInPlayerHands+1):
-        print gameCards[player,number][1] + gameCards[player,number][0]
-        part1 = 'INSERT INTO player_cards (playerID,card) VALUES ('
-        part2 = str(player) + ',"'
-        part3 = gameCards[player,number][1] + gameCards[player,number][0]
-        part4 = '");'
-        print part1 + part2 + part3 + part4
+# for player in range(1,players+1):
+#     for number in range(1,cardsInPlayerHands+1):
+#         print gameCards[player,number][1] + gameCards[player,number][0]
+#         part1 = 'INSERT INTO player_cards (playerID,card) VALUES ('
+#         part2 = str(player) + ',"'
+#         part3 = gameCards[player,number][1] + gameCards[player,number][0]
+#         part4 = '");'
+#         print part1 + part2 + part3 + part4
 
 
 communityCards = []
