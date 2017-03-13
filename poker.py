@@ -55,7 +55,7 @@ try:
     cursor.execute("DELETE FROM player_cards;")
     data = cursor.fetchone()
     print "%s " % data
-    disconnect from server
+    # disconnect from server
     db.close()
 except:
     pass
