@@ -93,7 +93,7 @@ while True:
         db = MySQLdb.connect("localhost","webserver","password","cards" )
         cursor = db.cursor()
         cursor.execute("SELECT * FROM players;")
-        players = curson.rowcount
+        players = cursor.rowcount
         print players
         db.commit()
         db.close()
@@ -123,7 +123,7 @@ while True:
                 part2 = str(player) + ',"'
                 part3 = gameCards[player,number][1] + gameCards[player,number][0]
                 part4 = '");'
-                # print part1 + part2 + part3 + part4
+                print part1 + part2 + part3 + part4
                 cursor.execute(part1+part2+part3+part4)
         db.commit()
         db.close()
