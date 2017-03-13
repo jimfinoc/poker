@@ -34,10 +34,11 @@ try:
     db.close()
 except:
     pass
-
+print
 print "Welcome to the poker game."
 while True:
     gameNumber = gameNumber + 1
+    print
     print "You are playing game #", gameNumber
     #!/usr/bin/python
 
@@ -122,7 +123,7 @@ while True:
                 part2 = str(player) + ',"'
                 part3 = gameCards[player,number][1] + gameCards[player,number][0]
                 part4 = '");'
-                print part1 + part2 + part3 + part4
+                # print part1 + part2 + part3 + part4
                 cursor.execute(part1+part2+part3+part4)
         db.commit()
         db.close()
@@ -296,3 +297,4 @@ while True:
     # When you haven't made any of the hands above, the highest card plays.
     # In the example below, the jack plays as the highest card.
     # 3 J 8 4 2
+    wait = raw_input("That's the game. Press enter to continue.")
