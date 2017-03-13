@@ -20,7 +20,7 @@ except:
 # cardSuits = ['hearts','clubs','spades','diamonds']
 cardSuits = ['h','c','s','d']
 # cardValues = ['two','three','four','five','six','seven','eight','nine','ten','jack','queen','king','ace']
-cardValues = ['02','03','04','05','06','07','08','09','10','11','12','13','14']
+cardValues = ['02','03','04','05','06','07','08','09','10','11','12','13','01']
 deckOfCards = []
 
 for suit in cardSuits:
