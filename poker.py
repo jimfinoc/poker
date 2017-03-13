@@ -43,7 +43,7 @@ cardsInPlayerHands = 2
 gameCards = {}
 
 try:
-    import MySQLdb
+    print
     # Open database connection
     db = MySQLdb.connect("localhost","webserver","password","cards" )
     # prepare a cursor object using cursor() method
@@ -96,13 +96,11 @@ communityCards.append(individualCard)
 deckOfCards.remove(individualCard)
 
 try:
-    import MySQLdb
-    # Open database connection
+    print
     db = MySQLdb.connect("localhost","webserver","password","cards" )
-    # prepare a cursor object using cursor() method
+
     cursor = db.cursor()
-
-
+    cursor.execute("DELETE FROM community_cards")
     for each in communityCards:
         print each[1] + each[0]
         part1 = 'INSERT INTO community_cards (Card) VALUES ("'
@@ -110,9 +108,6 @@ try:
         part3 = '");'
         print part1 + part2 + part3
         cursor.execute(part1+part2+part3)
-    # data = cursor.fetchone()
-    # print "%s " % data
-
     db.commit()
     db.close()
 except:
@@ -124,19 +119,56 @@ individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
 deckOfCards.remove(individualCard)
 
+try:
+    print
+    db = MySQLdb.connect("localhost","webserver","password","cards" )
+
+    cursor = db.cursor()
+    cursor.execute("DELETE FROM community_cards")
+    for each in communityCards:
+        print each[1] + each[0]
+        part1 = 'INSERT INTO community_cards (Card) VALUES ("'
+        part2 = each[1] + each[0]
+        part3 = '");'
+        print part1 + part2 + part3
+        cursor.execute(part1+part2+part3)
+    db.commit()
+    db.close()
+except:
+    pass
+
+
 # River
 individualCard = random.choice(deckOfCards)
 communityCards.append(individualCard)
 deckOfCards.remove(individualCard)
 
 
+try:
+    print
+    db = MySQLdb.connect("localhost","webserver","password","cards" )
 
-for each in communityCards:
-    print each[1] + each[0]
-    part1 = 'INSERT INTO community_cards (Card) VALUES ("'
-    part2 = each[1] + each[0]
-    part3 = '");'
-    print part1 + part2 + part3
+    cursor = db.cursor()
+    cursor.execute("DELETE FROM community_cards")
+    for each in communityCards:
+        print each[1] + each[0]
+        part1 = 'INSERT INTO community_cards (Card) VALUES ("'
+        part2 = each[1] + each[0]
+        part3 = '");'
+        print part1 + part2 + part3
+        cursor.execute(part1+part2+part3)
+    db.commit()
+    db.close()
+except:
+    pass
+
+
+# for each in communityCards:
+#     print each[1] + each[0]
+#     part1 = 'INSERT INTO community_cards (Card) VALUES ("'
+#     part2 = each[1] + each[0]
+#     part3 = '");'
+#     print part1 + part2 + part3
 
 # Check for Winners
 
