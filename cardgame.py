@@ -8,7 +8,8 @@ cardsInPlayerHands = 2
 wait = raw_input("Press Enter to reset all data.")
 
 try:
-    print
+    import MySQLdb
+    print ""
     # Open database connection
     db = MySQLdb.connect("localhost","webserver","password","cards" )
     # prepare a cursor object using cursor() method
@@ -28,7 +29,8 @@ try:
     db.close()
 except:
     pass
-print
+
+print ""
 print "Welcome to the poker game."
 wait = raw_input("Enter the players now!")
 while True:
