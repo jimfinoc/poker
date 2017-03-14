@@ -193,6 +193,7 @@ while True:
         db.close()
     except:
         pass
+    wait = raw_input("And that is the game!")
 
 
     # for each in communityCards:
