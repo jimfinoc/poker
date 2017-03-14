@@ -83,11 +83,13 @@ while True:
             individualCard = random.choice(deckOfCards)
             gameCards[player,number] = individualCard
             deckOfCards.remove(individualCard)
+    wait = raw_input("Hit enter to deal cards to the players!")
 
     try:
         print
         db = MySQLdb.connect("localhost","webserver","password","cards" )
         cursor = db.cursor()
+        cursor.execute("DELETE FROM player_cards;")
         # cursor.execute("SELECT * FROM players;")
         # players = curson.rowcount
         # print players
@@ -196,8 +198,6 @@ while True:
         db.close()
     except:
         pass
-    wait = raw_input("And that is the game!")
-
 
     # for each in communityCards:
     #     print each[1] + each[0]
