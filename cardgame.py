@@ -54,7 +54,6 @@ while True:
                 part3 = '"bck")'
                 print part1 + part2 + part3
                 cursor.execute(part1+part2+part3)
-                cursor.execute(part1+part2+part3)
         db.commit()
         db.close()
         cursor.execute("DELETE FROM community_cards")
