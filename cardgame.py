@@ -1,25 +1,9 @@
+#!/usr/bin/python
 import random
 
 gameNumber = 0
-# wait = raw_input("Press Enter to begin.")
-
-try:
-    import MySQLdb
-    # Open database connection
-    db = MySQLdb.connect("localhost","webserver","password","cards" )
-    # prepare a cursor object using cursor() method
-    cursor = db.cursor()
-    # execute SQL query using execute() method.
-    cursor.execute("SELECT VERSION()")
-    # Fetch a single row using fetchone() method.
-    data = cursor.fetchone()
-    print "Database version : %s " % data
-    # disconnect from server
-    db.close()
-except:
-    pass
-
 players = 0
+cardsInPlayerHands = 2
 
 wait = raw_input("Press Enter to reset all data.")
 
@@ -49,23 +33,33 @@ print "Welcome to the poker game."
 wait = raw_input("Enter the players now!")
 while True:
     gameNumber = gameNumber + 1
+    print
+    print "You are playing game #", gameNumber
 
     try:
         print
         db = MySQLdb.connect("localhost","webserver","password","cards" )
         cursor = db.cursor()
+        cursor.execute("DELETE FROM player_cards;")
         cursor.execute("SELECT * FROM players;")
         players = cursor.rowcount
         print players
+        for player in range(1,players+1):
+            for number in range(1,cardsInPlayerHands+1):
+                # print gameCards[player,number][1] + gameCards[player,number][0]
+                part1 = 'INSERT INTO player_cards (playerID,card) VALUES ("bck");'
+                # print part1 + part2 + part3 + part4
+                cursor.execute(part1+part2+part3+part4)
         db.commit()
         db.close()
+        cursor.execute("DELETE FROM community_cards")
+        cursor.execute("INSERT INTO community_cards (Card) VALUES ('bck')")
+        cursor.execute("INSERT INTO community_cards (Card) VALUES ('bck')")
+        cursor.execute("INSERT INTO community_cards (Card) VALUES ('bck')")
+        cursor.execute("INSERT INTO community_cards (Card) VALUES ('bck')")
+        cursor.execute("INSERT INTO community_cards (Card) VALUES ('bck')")
     except:
         pass
-
-    print
-    print "You are playing game #", gameNumber
-    #!/usr/bin/python
-
 
     # cardSuits = ['hearts','clubs','spades','diamonds']
     cardSuits = ['h','c','s','d']
@@ -76,41 +70,6 @@ while True:
     for suit in cardSuits:
         for value in cardValues:
             deckOfCards.append([value,suit])
-
-    # for each in cards:
-        # print each
-
-    cardsInPlayerHands = 2
-    # gameCards = []
-    #
-    # for player in range(1,players+1):
-    #     for number in range(1,cardsInPlayerHands+1):
-    #         # print player, number
-    #         individualCard = random.choice(deckOfCards)
-    #         gameCards.append([player,number,individualCard])
-    #         deckOfCards.remove(individualCard)
-
-    try:
-        print
-        # Open database connection
-        db = MySQLdb.connect("localhost","webserver","password","cards" )
-        # prepare a cursor object using cursor() method
-        cursor = db.cursor()
-        # execute SQL query using execute() method.
-        # cursor.execute("DELETE FROM players")
-        # data = cursor.fetchone()
-        # print "%s " % data
-        cursor.execute("DELETE FROM community_cards")
-        data = cursor.fetchone()
-        print "%s " % data
-        cursor.execute("DELETE FROM player_cards;")
-        data = cursor.fetchone()
-        print "%s " % data
-        # disconnect from server
-        db.commit()
-        db.close()
-    except:
-        pass
 
     gameCards = {}
     for player in range(1,players+1):
@@ -143,28 +102,19 @@ while True:
     except:
         pass
 
-    # for player in range(1,players+1):
-    #     for number in range(1,cardsInPlayerHands+1):
-    #         print gameCards[player,number][1] + gameCards[player,number][0]
-    #         part1 = 'INSERT INTO player_cards (playerID,card) VALUES ('
-    #         part2 = str(player) + ',"'
-    #         part3 = gameCards[player,number][1] + gameCards[player,number][0]
-    #         part4 = '");'
-    #         print part1 + part2 + part3 + part4
-
-
     communityCards = []
+
     # Flop
     wait = raw_input("Here comes the Flop. Hit enter ")
-
+    # Card 1
     individualCard = random.choice(deckOfCards)
     communityCards.append(individualCard)
     deckOfCards.remove(individualCard)
-
+    # Card 2
     individualCard = random.choice(deckOfCards)
     communityCards.append(individualCard)
     deckOfCards.remove(individualCard)
-
+    # Card 3
     individualCard = random.choice(deckOfCards)
     communityCards.append(individualCard)
     deckOfCards.remove(individualCard)
@@ -182,15 +132,16 @@ while True:
             part3 = '");'
             print part1 + part2 + part3
             cursor.execute(part1+part2+part3)
+        cursor.execute("INSERT INTO community_cards (Card) VALUES ('bck')")
+        cursor.execute("INSERT INTO community_cards (Card) VALUES ('bck')")
         db.commit()
         db.close()
     except:
         pass
 
-
     # Turn
     wait = raw_input("Time for the Turn. Hit enter ")
-
+    # Card 4
     individualCard = random.choice(deckOfCards)
     communityCards.append(individualCard)
     deckOfCards.remove(individualCard)
@@ -208,6 +159,7 @@ while True:
             part3 = '");'
             print part1 + part2 + part3
             cursor.execute(part1+part2+part3)
+        cursor.execute("INSERT INTO community_cards (Card) VALUES ('bck')")
         db.commit()
         db.close()
     except:
@@ -216,7 +168,7 @@ while True:
 
     # River
     wait = raw_input("And the River. Hit enter ")
-
+    # Card 5
     individualCard = random.choice(deckOfCards)
     communityCards.append(individualCard)
     deckOfCards.remove(individualCard)
