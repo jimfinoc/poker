@@ -247,7 +247,7 @@ while True:
                 cursor = db.cursor()
                 part1 = "UPDATE players SET hand="
                 part2 = '"' + playerHandStatus[player] + '"'
-                part3 = "WHERE playerID=" + str(player)
+                part3 = " WHERE playerID=" + str(player)
                 print part1 + part2 + part3
                 cursor.execute(part1+part2+part3)
             db.commit()
@@ -295,6 +295,7 @@ while True:
         db.close()
     except:
         pass
+    checkHands()
 
     # Turn
     wait = raw_input("Time for the Turn. Hit enter ")
@@ -321,6 +322,7 @@ while True:
         db.close()
     except:
         pass
+    checkHands()
 
 
     # River
@@ -348,6 +350,7 @@ while True:
         db.close()
     except:
         pass
+    checkHands()
 
     # for each in communityCards:
     #     print each[1] + each[0]
