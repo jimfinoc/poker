@@ -72,13 +72,10 @@ def check5Straight(hand): #Working
         elif len(temp) > 5:
             if int(temp[5]) - int(temp[1]) == 4:
                 return True
-        elif len(temp) > 6
+        elif len(temp) > 6:
             if  int(temp[6]) - int(temp[2]) == 4:
                 return True
     return False
-
-
-
 def check6ThreeOfAKind(hand): #Working
     value = []
     for each in hand:
