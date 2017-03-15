@@ -92,7 +92,7 @@ def check8Pair(hand):
     return gotHand
 def check9HighCard(hand):
     return True
-    
+
 
 
 
@@ -203,25 +203,25 @@ while True:
     ######################
 
     for player in range(1,players+1):
-            if check0RoyalFlush(gameCards[player,1] + gameCards[player,2] + communityCards)
+            if check0RoyalFlush(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check0RoyalFlush"
-            elif check1StraightFlush(gameCards[player,1] + gameCards[player,2] + communityCards)
+            elif check1StraightFlush(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check1StraightFlush"
-            elif check2FourOfAKind(gameCards[player,1] + gameCards[player,2] + communityCards)
+            elif check2FourOfAKind(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check2FourOfAKind"
-            elif check3FullHouse(gameCards[player,1] + gameCards[player,2] + communityCards)
+            elif check3FullHouse(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check3FullHouse"
-            elif check4Flush(gameCards[player,1] + gameCards[player,2] + communityCards)
+            elif check4Flush(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check4Flush"
-            elif check5Straight(gameCards[player,1] + gameCards[player,2] + communityCards)
+            elif check5Straight(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check5Straight"
-            elif check6ThreeOfAKind(gameCards[player,1] + gameCards[player,2] + communityCards)
+            elif check6ThreeOfAKind(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check6ThreeOfAKind"
-            elif check7TwoPair(gameCards[player,1] + gameCards[player,2] + communityCards)
+            elif check7TwoPair(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check7TwoPair"
-            elif check8Pair(gameCards[player,1] + gameCards[player,2] + communityCards)
+            elif check8Pair(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check8Pair"
-            elif check9HighCard(gameCards[player,1] + gameCards[player,2] + communityCards)
+            elif check9HighCard(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check9HighCard"
 
 
