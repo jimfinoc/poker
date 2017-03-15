@@ -196,6 +196,9 @@ while True:
     except:
         pass
 
+    for player in range(1,players+1):
+        print gameCards[player,1] + gameCards[player,2]
+
     communityCards = []
 
     ######################
@@ -212,8 +215,8 @@ while True:
             elif check3FullHouse(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check3FullHouse"
             elif check4Flush(gameCards[player,1] + gameCards[player,2] + communityCards):
-                print "player:",player,"has check4Flush"
-            elif check5Straight(gameCards[player,1] + gameCards[player,2] + communityCards):
+                # print "player:",player,"has check4Flush"
+            # elif check5Straight(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check5Straight"
             elif check6ThreeOfAKind(gameCards[player,1] + gameCards[player,2] + communityCards):
                 print "player:",player,"has check6ThreeOfAKind"
