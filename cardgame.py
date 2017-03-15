@@ -4,6 +4,108 @@ import random
 gameNumber = 0
 players = 0
 cardsInPlayerHands = 2
+# cardSuits = ['hearts','clubs','spades','diamonds']
+cardSuits = ['h','c','s','d']
+# cardValues = ['two','three','four','five','six','seven','eight','nine','ten','jack','queen','king','ace']
+cardValues = ['02','03','04','05','06','07','08','09','10','11','12','13','01']
+
+def check0RoyalFlush(cards):
+    if 1==1:
+        return True
+    else:
+        return False
+
+def check1StraightFlush(hand):
+    if 1==1:
+        return True
+    else:
+        return False
+
+def check2FourOfAKind(hand): #Working
+    value = []
+    for each in hand:
+        value.append(each[0])
+    max = 0
+    for each in cardValues:
+        temp = value.count(each)
+        if temp > max:
+            max = temp
+    if max > 3:
+        return True
+    else:
+        return False
+
+def check3FullHouse(hand):
+    if 1==1:
+        return True
+    else:
+        return False
+def check4Flush(hand): #Working
+    suit = []
+    for each in hand:
+        suit.append(each[1])
+    max = 0
+    for each in cardSuits:
+        temp = suit.count(each)
+        if temp > max:
+            max = temp
+    if max > 4:
+        return True
+    else:
+        return False
+
+def check5Straight(hand):
+    if 1==1:
+        return True
+    else:
+        return False
+def check6ThreeOfAKind(hand): #Working
+    value = []
+    for each in hand:
+        value.append(each[0])
+    max = 0
+    for each in cardValues:
+        temp = value.count(each)
+        if temp > max:
+            max = temp
+    if max > 2:
+        return True
+    else:
+        return False
+
+
+
+def check7TwoPair(hand):
+    if 1==1:
+        return True
+    else:
+        return False
+def check8Pair(hand):
+    hand = list(cards)
+    gotHand = False
+    gotAce = False
+    for each in hand:
+        if each[0] == '01':
+            print each[0]
+
+    if 1==1:
+        gotHand = True
+    return gotHand
+
+
+
+    if 1==1:
+        return True
+    else:
+        return False
+def check9HighCard(hand):
+    if 1==1:
+        return True
+    else:
+        return False
+
+
+
 
 wait = raw_input("Press Enter to reset all data.")
 
@@ -65,10 +167,7 @@ while True:
     except:
         pass
 
-    # cardSuits = ['hearts','clubs','spades','diamonds']
-    cardSuits = ['h','c','s','d']
-    # cardValues = ['two','three','four','five','six','seven','eight','nine','ten','jack','queen','king','ace']
-    cardValues = ['02','03','04','05','06','07','08','09','10','11','12','13','01']
+
     deckOfCards = []
 
     for suit in cardSuits:
@@ -207,18 +306,7 @@ while True:
 
     # Check for Winners
 
-    # for player in range(1,players+1):
-    #     hand = []
-    #     # print player
-    #     # print gameCards[player,1]
-    #     hand.append(gameCards[player,1])
-    #     # print gameCards[player,2]
-    #     hand.append(gameCards[player,2])
-    #     for each in communityCards:
-    #         hand.append(each)
-    #     # print hand
-    #     for each in hand:
-    #         print each
+
     # 1. Royal flush
     # A, K, Q, J, 10, all the same suit.
     # A K Q J T
