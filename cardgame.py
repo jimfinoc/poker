@@ -55,7 +55,14 @@ def check4Flush(hand): #Working
         return False
 
 def check5Straight(hand):
-    if 1==0:
+    value = []
+    for each in hand:
+        value.append(each[0])
+    print value
+    value.sort()
+    print value
+    max = 0
+    if max > 2:
         return True
     else:
         return False
