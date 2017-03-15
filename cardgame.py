@@ -10,13 +10,13 @@ cardSuits = ['h','c','s','d']
 cardValues = ['02','03','04','05','06','07','08','09','10','11','12','13','01']
 
 def check0RoyalFlush(cards):
-    if 1==1:
+    if 1==0:
         return True
     else:
         return False
 
 def check1StraightFlush(hand):
-    if 1==1:
+    if 1==0:
         return True
     else:
         return False
@@ -36,7 +36,7 @@ def check2FourOfAKind(hand): #Working
         return False
 
 def check3FullHouse(hand):
-    if 1==1:
+    if 1==0:
         return True
     else:
         return False
@@ -55,7 +55,7 @@ def check4Flush(hand): #Working
         return False
 
 def check5Straight(hand):
-    if 1==1:
+    if 1==0:
         return True
     else:
         return False
@@ -76,34 +76,23 @@ def check6ThreeOfAKind(hand): #Working
 
 
 def check7TwoPair(hand):
-    if 1==1:
+    if 1==0:
         return True
     else:
         return False
 def check8Pair(hand):
-    hand = list(cards)
-    gotHand = False
-    gotAce = False
-    for each in hand:
-        if each[0] == '01':
-            print each[0]
-
-    if 1==1:
+    # hand = list(cards)
+    # gotHand = False
+    # gotAce = False
+    # for each in hand:
+    #     if each[0] == '01':
+    #         print each[0]
+    if 1==0:
         gotHand = True
     return gotHand
-
-
-
-    if 1==1:
-        return True
-    else:
-        return False
 def check9HighCard(hand):
-    if 1==1:
-        return True
-    else:
-        return False
-
+    return True
+    
 
 
 
@@ -208,6 +197,35 @@ while True:
         pass
 
     communityCards = []
+
+    ######################
+    #test cards
+    ######################
+
+    for player in range(1,players+1):
+            if check0RoyalFlush(gameCards[player,1] + gameCards[player,2] + communityCards)
+                print "player:",player,"has check0RoyalFlush"
+            elif check1StraightFlush(gameCards[player,1] + gameCards[player,2] + communityCards)
+                print "player:",player,"has check1StraightFlush"
+            elif check2FourOfAKind(gameCards[player,1] + gameCards[player,2] + communityCards)
+                print "player:",player,"has check2FourOfAKind"
+            elif check3FullHouse(gameCards[player,1] + gameCards[player,2] + communityCards)
+                print "player:",player,"has check3FullHouse"
+            elif check4Flush(gameCards[player,1] + gameCards[player,2] + communityCards)
+                print "player:",player,"has check4Flush"
+            elif check5Straight(gameCards[player,1] + gameCards[player,2] + communityCards)
+                print "player:",player,"has check5Straight"
+            elif check6ThreeOfAKind(gameCards[player,1] + gameCards[player,2] + communityCards)
+                print "player:",player,"has check6ThreeOfAKind"
+            elif check7TwoPair(gameCards[player,1] + gameCards[player,2] + communityCards)
+                print "player:",player,"has check7TwoPair"
+            elif check8Pair(gameCards[player,1] + gameCards[player,2] + communityCards)
+                print "player:",player,"has check8Pair"
+            elif check9HighCard(gameCards[player,1] + gameCards[player,2] + communityCards)
+                print "player:",player,"has check9HighCard"
+
+
+
 
     # Flop
     wait = raw_input("Here comes the Flop. Hit enter ")
