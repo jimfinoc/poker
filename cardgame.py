@@ -54,18 +54,20 @@ def check4Flush(hand): #Working
     else:
         return False
 
-def check5Straight(hand):
+def check5Straight(hand): #Working
     value = []
     for each in hand:
         value.append(each[0])
     print value
     value.sort()
     print value
-    max = 0
-    if max > 2:
-        return True
-    else:
-        return False
+    if value[0] == '01' :
+        if value[4] == '05':
+            return True
+        elif value[-4] == '10' and value[-1] == '13':
+            return True
+        else:
+
 def check6ThreeOfAKind(hand): #Working
     value = []
     for each in hand:
