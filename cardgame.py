@@ -89,6 +89,8 @@ def check8Pair(hand):
     #         print each[0]
     if 1==0:
         gotHand = True
+    else:
+        gotHand = False
     return gotHand
 def check9HighCard(hand):
     return True
