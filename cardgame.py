@@ -80,18 +80,19 @@ def check7TwoPair(hand):
         return True
     else:
         return False
-def check8Pair(hand):
-    # hand = list(cards)
-    # gotHand = False
-    # gotAce = False
-    # for each in hand:
-    #     if each[0] == '01':
-    #         print each[0]
-    if 1==0:
-        gotHand = True
+def check8Pair(hand): #Working
+    value = []
+    for each in hand:
+        value.append(each[0])
+    max = 0
+    for each in cardValues:
+        temp = value.count(each)
+        if temp > max:
+            max = temp
+    if max > 1:
+        return True
     else:
-        gotHand = False
-    return gotHand
+        return False
 def check9HighCard(hand):
     return True
 
