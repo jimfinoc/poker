@@ -4,10 +4,12 @@ import random
 gameNumber = 0
 players = 0
 cardsInPlayerHands = 2
-# cardSuits = ['hearts','clubs','spades','diamonds']
+cardSuitsVerbose = ['hearts','clubs','spades','diamonds']
 cardSuits = ['h','c','s','d']
-# cardValues = ['two','three','four','five','six','seven','eight','nine','ten','jack','queen','king','ace']
+cardValuesVerbose = ['two','three','four','five','six','seven','eight','nine','ten','jack','queen','king','ace']
 cardValues = ['02','03','04','05','06','07','08','09','10','11','12','13','01']
+dictSuits = {}
+dictValues = {}
 
 def check0RoyalFlush(cards):
     if 1==0:
