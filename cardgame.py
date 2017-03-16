@@ -61,7 +61,7 @@ def check7TwoPair(hand):
         temp = value.count(each)
         if temp > 1:
             pairs[each0] = True
-    if len(pairs) > 1:.
+    if len(pairs) > 1:
         return True
 def check4Flush(hand): #Working
     suit = []
