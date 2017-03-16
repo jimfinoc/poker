@@ -53,7 +53,7 @@ def check6ThreeOfAKind(hand): #Working
         return False
 def check7TwoPair(hand):
     value = []
-    pairs {}
+    pairs = {}
     for each in hand:
         value.append(each[0])
     max = 0
