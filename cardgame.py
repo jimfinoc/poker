@@ -60,7 +60,7 @@ def check7TwoPair(hand):
     for each in cardValues:
         temp = value.count(each)
         if temp > 1:
-            pairs[each0] = True
+            pairs[each[0]] = True
     if len(pairs) > 1:
         return True
 def check4Flush(hand): #Working
