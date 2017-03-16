@@ -37,11 +37,32 @@ def check2FourOfAKind(hand): #Working
     else:
         return False
 
-def check3FullHouse(hand):
-    if 1==0:
+# def check3FullHouse(hand): It is below
+def check6ThreeOfAKind(hand): #Working
+    value = []
+    for each in hand:
+        value.append(each[0])
+    max = 0
+    for each in cardValues:
+        temp = value.count(each)
+        if temp > max:
+            max = temp
+    if max > 2:
         return True
     else:
         return False
+def check7TwoPair(hand):
+    value = []
+    pairs {}
+    for each in hand:
+        value.append(each[0])
+    max = 0
+    for each in cardValues:
+        temp = value.count(each)
+        if temp > 1:
+            pairs[each0] = True
+    if len(pairs) > 1:.
+        return True
 def check4Flush(hand): #Working
     suit = []
     for each in hand:
@@ -93,10 +114,20 @@ def check6ThreeOfAKind(hand): #Working
     else:
         return False
 def check7TwoPair(hand):
-    if 1==0:
+    value = []
+    pairs {}
+    for each in hand:
+        value.append(each[0])
+    max = 0
+    for each in cardValues:
+        temp = value.count(each)
+        if temp > 1:
+            pairs[each0] = True
+    if len(pairs) > 1:
         return True
     else:
         return False
+
 def check8Pair(hand): #Working
     value = []
     for each in hand:
@@ -112,6 +143,12 @@ def check8Pair(hand): #Working
         return False
 def check9HighCard(hand):
     return True
+
+def check3FullHouse(hand):
+    if (check6ThreeOfAKind()) and (check7TwoPair()):
+        return True
+    else:
+        return False
 
 
 
