@@ -55,16 +55,16 @@ def check4Flush(hand): #Working
         return False
 
 def check5Straight(hand): #Working
-    print "looking for a straight"
+    # print "looking for a straight"
     value = {}
     for each in hand:
         value[each[0]]= each[1]
-    print "these are the values", value
-    print "these are the keys", value.keys()
+    # print "these are the values", value
+    # print "these are the keys", value.keys()
     temp = list(value.keys())
-    print "this is a list of the keys", temp
+    # print "this is a list of the keys", temp
     temp.sort()
-    print "the sorted list", temp
+    # print "the sorted list", temp
     if len(temp) > 4:
         if '01' in value and temp[-4] == '10' and temp[-1] == '13':
             return True
