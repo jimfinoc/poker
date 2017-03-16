@@ -261,11 +261,11 @@ while True:
                 playerHandStatus[player] = "High Card"
         try: #to save this to the database
             for player in range(1,players+1):
-                db = MySQLdb.connect("localhost","webserver","password","cards" )
+                db = MySQLdb.connect("localhost","webserver","password","cards")
                 cursor = db.cursor()
                 part1 = "UPDATE players SET hand="
                 part2 = '"' + playerHandStatus[player] + '"'
-                part3 = " WHERE playerID=" + str(player)
+                part3 = " WHERE playerID=" + str(player) + ";"
                 print part1 + part2 + part3
                 cursor.execute(part1+part2+part3)
             db.commit()
