@@ -66,7 +66,7 @@ def check5Straight(hand): #Working
     temp = list(value.keys())
     # print "this is a list of the keys", temp
     temp.sort()
-    # print "the sorted list", temp
+    print "the sorted list", temp
     if len(temp) > 4:
         if '01' in value and temp[-4] == '10' and temp[-1] == '13':
             return True
@@ -232,34 +232,34 @@ while True:
     def checkHands():
         for player in range(1,players+1):
             if check0RoyalFlush([gameCards[player,1]] + [gameCards[player,2]] + communityCards):
-                print "player:",player,"has check0RoyalFlush"
+                # print "player:",player,"has check0RoyalFlush"
                 playerHandStatus[player] = "Royal Flush"
             elif check1StraightFlush([gameCards[player,1]] + [gameCards[player,2]] + communityCards):
-                print "player:",player,"has check1StraightFlush"
+                # print "player:",player,"has check1StraightFlush"
                 playerHandStatus[player] = "Straight Flush"
             elif check2FourOfAKind([gameCards[player,1]] + [gameCards[player,2]] + communityCards):
-                print "player:",player,"has check2FourOfAKind"
+                # print "player:",player,"has check2FourOfAKind"
                 playerHandStatus[player] = "Four of a Kind"
             elif check3FullHouse([gameCards[player,1]] + [gameCards[player,2]] + communityCards):
-                print "player:",player,"has check3FullHouse"
+                # print "player:",player,"has check3FullHouse"
                 playerHandStatus[player] = "Full House"
             elif check4Flush([gameCards[player,1]] + [gameCards[player,2]] + communityCards):
-                print "player:",player,"has check4Flush"
+                # print "player:",player,"has check4Flush"
                 playerHandStatus[player] = "Flush"
             elif check5Straight([gameCards[player,1]] + [gameCards[player,2]] + communityCards):
-                print "player:",player,"has check5Straight"
+                # print "player:",player,"has check5Straight"
                 playerHandStatus[player] = "Straight"
             elif check6ThreeOfAKind([gameCards[player,1]] + [gameCards[player,2]] + communityCards):
-                print "player:",player,"has check6ThreeOfAKind"
+                # print "player:",player,"has check6ThreeOfAKind"
                 playerHandStatus[player] = "Three of a Kind"
             elif check7TwoPair([gameCards[player,1]] + [gameCards[player,2]] + communityCards):
-                print "player:",player,"has check7TwoPair"
+                # print "player:",player,"has check7TwoPair"
                 playerHandStatus[player] = "Two Pair"
             elif check8Pair([gameCards[player,1]] + [gameCards[player,2]] + communityCards):
-                print "player:",player,"has check8Pair"
+                # print "player:",player,"has check8Pair"
                 playerHandStatus[player] = "Pair"
             elif check9HighCard([gameCards[player,1]] + [gameCards[player,2]] + communityCards):
-                print "player:",player,"has check9HighCard"
+                # print "player:",player,"has check9HighCard"
                 playerHandStatus[player] = "High Card"
         try: #to save this to the database
             db = MySQLdb.connect("localhost","webserver","password","cards")
