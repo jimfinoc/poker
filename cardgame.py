@@ -423,7 +423,7 @@ while True:
     debugPrint ("The player cards.")
     for player in range(1,players+1):
         for number in range(1,cardsInPlayerHands+1):
-            print gameCards[player,number][1] + gameCards[player,number][0]
+            print [gameCards[player,number][1], gameCards[player,number][0]]
     debugPrint ("The community cards.")
     for each in communityCards:
         debugPrint(each)
