@@ -12,16 +12,25 @@ dictSuits = {}
 dictValues = {}
 
 def check0RoyalFlush(cards):
-    if 1==0:
+    haveAce = False
+    for each in hand:
+        if each[0] == '01':
+            haveAce = True
+    if (check1StraightFlush(cards) and haveAce)
         return True
     else:
         return False
 
 def check1StraightFlush(hand):
-    if 1==0:
-        return True
-    else:
-        return False
+    for each in cardSuits:
+        individualSuits = []
+        for card in hand:
+            if card[1] == each:
+                individualSuits.append(card)
+        if check5Straight(individualSuits):
+            return True
+        else:
+            return False
 
 def check2FourOfAKind(hand): #Working
     value = []
