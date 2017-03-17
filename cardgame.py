@@ -428,5 +428,6 @@ while True:
     debugPrint ("The community cards.")
     for each in communityCards:
         print each ,
+    print 
 
     wait = raw_input("That's the game. Press enter to continue.")
