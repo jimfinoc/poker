@@ -14,7 +14,7 @@ dictValues = {}
 def debugPrint(data):
     print data
 
-def check0RoyalFlush(cards):
+def check0RoyalFlush(cards): #Working
     haveAce = False
     for each in cards:
         if each[0] == '01':
@@ -24,16 +24,18 @@ def check0RoyalFlush(cards):
     else:
         return False
 
-def check1StraightFlush(hand):
+def check1StraightFlush(hand): #Working
     for each in cardSuits:
+        print each
         individualSuits = []
         for card in hand:
+            print card
             if card[1] == each:
                 individualSuits.append(card)
+        print individualSuits
         if check5Straight(individualSuits):
             return True
-        else:
-            return False
+    return False
 
 def check2FourOfAKind(hand): #Working
     value = []
@@ -49,32 +51,12 @@ def check2FourOfAKind(hand): #Working
     else:
         return False
 
-# def check3FullHouse(hand): It is below
-def check6ThreeOfAKind(hand): #Working
-    value = []
-    for each in hand:
-        value.append(each[0])
-    max = 0
-    for each in cardValues:
-        temp = value.count(each)
-        if temp > max:
-            max = temp
-    if max > 2:
+def check3FullHouse(hand): #Working
+    if (check6ThreeOfAKind(hand)) and (check7TwoPair(hand)):
         return True
     else:
         return False
-def check7TwoPair(hand):
-    value = []
-    pairs = {}
-    for each in hand:
-        value.append(each[0])
-    max = 0
-    for each in cardValues:
-        temp = value.count(each)
-        if temp > 1:
-            pairs[each[0]] = True
-    if len(pairs) > 1:
-        return True
+
 def check4Flush(hand): #Working
     suit = []
     for each in hand:
@@ -112,6 +94,7 @@ def check5Straight(hand): #Working
             if  int(temp[6]) - int(temp[2]) == 4:
                 return True
     return False
+
 def check6ThreeOfAKind(hand): #Working
     value = []
     for each in hand:
@@ -125,7 +108,8 @@ def check6ThreeOfAKind(hand): #Working
         return True
     else:
         return False
-def check7TwoPair(hand):
+
+def check7TwoPair(hand): #Working
     value = []
     pairs = {}
     for each in hand:
@@ -137,8 +121,6 @@ def check7TwoPair(hand):
             pairs[each[0]] = True
     if len(pairs) > 1:
         return True
-    else:
-        return False
 
 def check8Pair(hand): #Working
     value = []
@@ -153,14 +135,10 @@ def check8Pair(hand): #Working
         return True
     else:
         return False
+
 def check9HighCard(hand):
     return True
 
-def check3FullHouse(hand):
-    if (check6ThreeOfAKind(hand)) and (check7TwoPair(hand)):
-        return True
-    else:
-        return False
 
 
 
@@ -428,6 +406,6 @@ while True:
     debugPrint ("The community cards.")
     for each in communityCards:
         print each ,
-    print 
+    print
 
     wait = raw_input("That's the game. Press enter to continue.")
