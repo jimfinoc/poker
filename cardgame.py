@@ -11,6 +11,9 @@ cardValues = ['02','03','04','05','06','07','08','09','10','11','12','13','01']
 dictSuits = {}
 dictValues = {}
 
+def debugPrint(data):
+    print data
+
 def check0RoyalFlush(cards):
     haveAce = False
     for each in cards:
@@ -417,4 +420,13 @@ while True:
     except:
         pass
     checkHands()
+    debugPrint ("The player cards.")
+    for each in player:
+        print each
+        for each2 in number:
+            print each2
+    debugPrint ("The community cards.")
+    for each in communityCards:
+        debugPrint(each)
+
     wait = raw_input("That's the game. Press enter to continue.")
