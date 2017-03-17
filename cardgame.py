@@ -423,9 +423,10 @@ while True:
     debugPrint ("The player cards.")
     for player in range(1,players+1):
         for number in range(1,cardsInPlayerHands+1):
-            print gameCards[player,number]
+            print gameCards[player,number],
+        print
     debugPrint ("The community cards.")
     for each in communityCards:
-        debugPrint(each)
+        print each ,
 
     wait = raw_input("That's the game. Press enter to continue.")
