@@ -13,7 +13,7 @@ dictValues = {}
 
 def check0RoyalFlush(cards):
     haveAce = False
-    for each in hand:
+    for each in cards:
         if each[0] == '01':
             haveAce = True
     if (check1StraightFlush(cards) and haveAce):
