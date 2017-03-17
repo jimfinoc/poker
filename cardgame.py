@@ -16,7 +16,7 @@ def check0RoyalFlush(cards):
     for each in hand:
         if each[0] == '01':
             haveAce = True
-    if (check1StraightFlush(cards) and haveAce)
+    if (check1StraightFlush(cards) and haveAce):
         return True
     else:
         return False
